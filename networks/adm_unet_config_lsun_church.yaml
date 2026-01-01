@@ -1,0 +1,24 @@
+# ADM UNet configuration for CelebA-hq-256
+
+image_size: 256              # Full image resolution; internally, UNet gets 256//8 = 32
+num_in_channels: 4           # Input channels (e.g., latent space channels from the autoencoder)
+num_out_channels: 4          # Output channels
+nf: 256                    # Base channel count (model_channels)
+num_res_blocks: 2          # Number of residual blocks per scale
+attn_resolutions:          # Spatial resolutions (downsample factors) at which attention is applied
+  - 16
+  - 8
+dropout: 0.0               # No dropout
+ch_mult:                   # Channel multipliers for each level of the UNet
+  - 1
+  - 2
+  - 3                   
+  - 4                      
+resamp_with_conv: true     # Use convolutional resampling (upsample/downsample)
+num_heads: 4               # Number of attention heads in each attention block
+num_head_channels: -1      # Use default behavior (compute head width from num_heads and channel count)
+num_heads_upsample: -1     # Same as num_heads for upsampling layers
+use_scale_shift_norm: true # Use FiLM-style conditioning in the normalization layers
+resblock_updown: false     # Do not use specialized up/down residual blocks (use simple Downsample/Upsample)
+use_new_attention_order: false  # Use the legacy attention order
+num_classes: null          # Unconditional model (set to an integer for class-conditional models)

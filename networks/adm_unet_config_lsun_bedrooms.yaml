@@ -1,0 +1,34 @@
+# edm_unet_config.yaml
+# EDM UNet configuration for LSUN-Bedroom 256x256
+
+# Base image configuration
+image_size: 256  # Full image resolution
+f: 8  # Downsample factor from the autoencoder
+num_in_channels: 4  # Input channels from VAE latent space
+num_out_channels: 4  # Output channels
+
+# Network configuration
+nf: 256  # Base channel count (model_channels)
+num_res_blocks: 2  # Number of residual blocks per scale
+attn_resolutions:  # Resolutions at which attention is applied
+  - 16
+  - 8
+  - 4
+dropout: 0.0  # No dropout
+
+# Channel configuration
+ch_mult:  # Channel multipliers for each level
+  - 1
+  - 2
+  - 3
+  - 4
+
+# Class conditioning
+label_dim: 0  # Unconditional model
+label_dropout: 0.0  # No label dropout
+
+# Scale factor (for VAE latent space)
+scale_factor: 0.18215
+
+# For the loader
+model_type: "adm"  # Model type to use
