@@ -2,6 +2,8 @@
 
 Official code release for the AAAI 2026 paper **Graph Flow Matching: Enhancing Image Generation with Neighbor-Aware Flow**.
 
+Paper (arXiv): https://arxiv.org/abs/2505.24434
+
 This repository implements **Graph Flow Matching (GFM)**: flow matching in **VAE latent space**, augmented with a **graph-based correction** term that couples each sample to its neighbors via an adjacency matrix (e.g., attention / cosine / kNN).
 
 ---
